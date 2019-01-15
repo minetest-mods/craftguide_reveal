@@ -17,8 +17,8 @@ local function revealed_show_recipe(recipe, playername)
 		if item:sub(1,6) == "group:" then
 			local groups = item:sub(7):split(",")
 			for cid, items in pairs(revealed) do
-				for item in pairs(items) do
-					if item_has_groups(reg_items[item].groups, groups) then
+				for revealed_item in pairs(items) do
+					if reg_items[revealed_item] and item_has_groups(reg_items[revealed_item].groups, groups) then
 						is_revealed_item = true
 					end
 				end
